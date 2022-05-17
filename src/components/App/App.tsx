@@ -38,7 +38,8 @@ function App() {
   });
 
   useEffect(() => {
-    restApi.getAllCountries
+    restApi
+      .getAllCountries()
       .then((res: []) => {
         setCountries(res);
       })
@@ -48,7 +49,18 @@ function App() {
   }, []);
 
   const handleCountryClick = (country: Country): void => {
+    console.log(country);
+
     setSelectedCountry(country);
+  };
+
+  const handleBorderClick = (country: string): void => {
+    setSelectedCountry(
+      countries.filter(
+        (c: { fifa: string; cca3: string; cca2: string }) =>
+          c.fifa == country || c.cca3 === country || c.cca2 === country
+      )[0]
+    );
   };
 
   return (
@@ -57,7 +69,12 @@ function App() {
       <Routes>
         <Route
           path="/country"
-          element={<Country selectedCountry={selectedCountry} />}
+          element={
+            <Country
+              selectedCountry={selectedCountry}
+              onBorderClick={handleBorderClick}
+            />
+          }
         />
         <Route
           path="/"

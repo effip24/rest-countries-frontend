@@ -1,5 +1,6 @@
-import "./Country.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./Country.css";
 
 interface Props {
   selectedCountry: {
@@ -14,9 +15,14 @@ interface Props {
     languages: {};
     borders: string[];
   };
+  onBorderClick: Function;
 }
 
-const Country = ({ selectedCountry }: Props) => {
+const Country = ({ selectedCountry, onBorderClick }: Props) => {
+  const handleBorderClick = (e: React.MouseEvent<HTMLElement>) => {
+    onBorderClick(e.currentTarget.textContent);
+  };
+
   return (
     <section className="country">
       <Link className="country__back-wrap" to={"/"}>
@@ -36,23 +42,39 @@ const Country = ({ selectedCountry }: Props) => {
 
           <div className="country__details-container">
             <ul className="country__details">
-              <p className="country__detail">{`Native Name: ${Object.values(
-                selectedCountry.name.nativeName
-              ).map((name: any) => name.common)}`}</p>
+              {selectedCountry.name.nativeName ? (
+                <p className="country__detail">{`Native Name: ${Object.values(
+                  selectedCountry.name.nativeName
+                ).map((name: any) => name.common)}`}</p>
+              ) : (
+                <p className="country__detail">Native Name: none</p>
+              )}
+
               <p className="country__detail">{`Population: ${selectedCountry.population.toLocaleString()}`}</p>
               <p className="country__detail">{`Region: ${selectedCountry.region}`}</p>
               <p className="country__detail">{`Sub Region: ${selectedCountry.subregion}`}</p>
-              <p className="country__detail">{`Capital: ${selectedCountry.capital[0]}`}</p>
+              <p className="country__detail">{`Capital: ${
+                selectedCountry.capital ? selectedCountry.capital : "none"
+              }`}</p>
             </ul>
 
             <ul className="country__details">
               <p className="country__detail">{`Top Level Domain: ${selectedCountry.tld}`}</p>
-              <p className="country__detail">{`Currencies: ${Object.values(
-                selectedCountry.currencies
-              ).map((value: any) => value.name)}`}</p>
-              <p className="country__detail">
-                {`Languages: ${Object.values(selectedCountry.languages)}`}
-              </p>
+              {selectedCountry.currencies ? (
+                <p className="country__detail">{`Currencies: ${Object.values(
+                  selectedCountry.currencies
+                ).map((value: any) => value.name)}`}</p>
+              ) : (
+                <p className="country__detail">Currencies: none</p>
+              )}
+
+              {selectedCountry.languages ? (
+                <p className="country__detail">
+                  {`Languages: ${Object.values(selectedCountry.languages)}`}
+                </p>
+              ) : (
+                <p className="country__detail">Languages: none</p>
+              )}
             </ul>
           </div>
 
@@ -60,7 +82,11 @@ const Country = ({ selectedCountry }: Props) => {
             <p className="country__detail">Border Countries:</p>
             <ul className="country__border-list">
               {selectedCountry.borders?.map((border, id) => (
-                <li className="country__border" key={id}>
+                <li
+                  className="country__border"
+                  key={id}
+                  onClick={handleBorderClick}
+                >
                   {border}
                 </li>
               ))}

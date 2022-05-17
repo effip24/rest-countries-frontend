@@ -11,7 +11,7 @@ class RestApi {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  get getAllCountries(): any {
+  getAllCountries(): any {
     return fetch(`${this.baseUrl}/all`).then((res) => {
       return this._checkResponse(res);
     });
