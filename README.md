@@ -17,4 +17,4 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
-- [Netlify](https://www.netlify.com/)
+- [Live version](https://rest-countries-effip.netlify.app/)
