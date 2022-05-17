@@ -9,7 +9,10 @@ import arrowBackDark from "../images/icons/back-dark.svg";
 
 const changeTheme = (theme: { light: boolean; dark: boolean }): void => {
   if (theme.light) {
-    document.documentElement.style.setProperty("--main-bg", "#ffffff");
+    document.documentElement.style.setProperty(
+      "--main-bg",
+      "rgb(250, 250, 250)"
+    );
 
     document.documentElement.style.setProperty("--header-bg", "#ffffff");
 

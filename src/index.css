@@ -2,7 +2,7 @@
 @import url("./vendor/fonts/fonts.css");
 
 :root {
-  --main-bg: #ffffff;
+  --main-bg: rgb(250, 250, 250);
   --header-bg: #ffffff;
   --main-text: #111517;
   --close: url("./images/icons/close-light.png");
