@@ -1,5 +1,13 @@
 .country-card {
   width: 100%;
+}
+.country-card:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.country-card__link {
+  width: 100%;
   max-width: 267px;
   display: flex;
   flex-direction: column;
@@ -12,10 +20,6 @@
   padding-bottom: 45px;
   box-sizing: border-box;
   text-decoration: none;
-}
-.country-card:hover {
-  cursor: pointer;
-  opacity: 0.6;
 }
 
 .country-card__flag {

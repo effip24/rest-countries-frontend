@@ -17,7 +17,7 @@ const SearchForm = ({ onSearch }: Props) => {
     <form className="search">
       <i className="search__icon"></i>
       <input
-        placeholder="Enter topic"
+        placeholder="Search for a country..."
         className="search__input"
         onChange={handleChange}
         value={keyword || ""}

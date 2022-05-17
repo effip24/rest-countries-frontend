@@ -32,6 +32,7 @@ const Header = () => {
         <button
           className="header__theme-buttom"
           onClick={handleThemeChangeClick}
+          aria-label="theme change"
         ></button>
         <p className="header__theme-state">{themeState}</p>
       </div>
