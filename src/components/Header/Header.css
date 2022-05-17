@@ -1,0 +1,75 @@
+.header {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  padding: 23px 81px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.header__title {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 33px;
+  /* identical to box height */
+  color: var(--main-text);
+  margin: 0;
+}
+
+.header__theme-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header__theme-buttom {
+  width: 20px;
+  height: 20px;
+  background-image: url("../../images/icons/moon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+.header__theme-buttom:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.header__theme-state {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+  color: var(--main-text);
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 30px 16px;
+  }
+  .header__title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .header__theme-buttom {
+    width: 16px;
+    height: 16px;
+  }
+  .header__theme-state {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

@@ -1,0 +1,11 @@
+@import url("./vendor/normalize.css");
+@import url("./vendor/fonts/fonts.css");
+
+:root {
+  --main-bg: #ffffff;
+  --header-bg: #ffffff;
+  --main-text: #111517;
+  --close: url("./images/icons/close-light.png");
+  --arrow-down: url("./images/icons/arrow-down-light.svg");
+  --arrow-back: url("./images/icons/back-light.svg");
+}
