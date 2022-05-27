@@ -1,21 +1,14 @@
 import { Link } from "react-router-dom";
 import "./CountryCard.css";
+import { C } from "../../utils/types";
 
 interface Props {
-  card: {
-    flags: { png: string };
-    name: { common: string };
-    population: string;
-    region: string;
-    capital: string;
-  };
+  card: C;
   onClick: Function;
 }
 
 const CountryCard = ({ card, onClick }: Props) => {
-  const handleCountryClick = (): void => {
-    onClick(card);
-  };
+  const handleCountryClick = (): void => onClick(card);
 
   return (
     <li className="country-card" onClick={handleCountryClick}>

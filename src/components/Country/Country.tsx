@@ -1,20 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Country.css";
+import { C } from "../../utils/types";
 
 interface Props {
-  selectedCountry: {
-    flags: { png: string };
-    name: { common: string; nativeName: {} };
-    population: string;
-    region: string;
-    subregion: string;
-    capital: string[];
-    currencies: {};
-    tld: string;
-    languages: {};
-    borders: string[];
-  };
+  selectedCountry: C;
   onBorderClick: Function;
 }
 

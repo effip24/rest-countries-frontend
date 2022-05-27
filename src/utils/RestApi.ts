@@ -1,21 +1,25 @@
+import { C } from "../utils/types";
+
 class RestApi {
   baseUrl: string;
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
-  _checkResponse(res: any): any {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  }
 
-  getAllCountries(): any {
-    return fetch(`${this.baseUrl}/all`).then((res) => {
-      return this._checkResponse(res);
-    });
-  }
+  getAllCountries = async (): Promise<C[]> => {
+    try {
+      const res: Response = await fetch(`${this.baseUrl}/all`);
+
+      if (!res.ok) {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+
+      return await res.json();
+    } catch (error) {
+      return Promise.reject(`Error: ${error}`);
+    }
+  };
 }
 
 const restApi = new RestApi("https://restcountries.com/v3.1");

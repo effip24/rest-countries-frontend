@@ -10,13 +10,9 @@ interface Props {
 const Filter = ({ filters, onFilter, onRemoveFilter }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
-  const handleMouseEnter = (): void => {
-    setIsHovering(!isHovering);
-  };
+  const handleMouseEnter = (): void => setIsHovering(!isHovering);
 
-  const handleMouseLeave = (): void => {
-    setIsHovering(!isHovering);
-  };
+  const handleMouseLeave = (): void => setIsHovering(!isHovering);
 
   const handleFilterClick = (e: React.MouseEvent<HTMLElement>): void => {
     onFilter(e.currentTarget.textContent);

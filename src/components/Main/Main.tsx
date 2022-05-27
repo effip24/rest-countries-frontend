@@ -1,12 +1,13 @@
+import { useState } from "react";
 import "./Main.css";
+import { C } from "../../utils/types";
 
 import SearchForm from "../SearchForm/SearchForm";
 import Filter from "../Filter/Filter";
 import Countries from "../Countries/Countries";
-import { useState } from "react";
 
 interface Props {
-  countries: [];
+  countries: C[];
   onCountryClick: Function;
 }
 
@@ -15,13 +16,9 @@ const Main = ({ countries, onCountryClick }: Props) => {
   const [nextCountries, setNextCountries] = useState<number>(8);
   const [filters, setFilters] = useState<string[]>([]);
 
-  const handleLoadMoreClick = (): void => {
-    setNextCountries(nextCountries + 8);
-  };
+  const handleLoadMoreClick = (): void => setNextCountries(nextCountries + 8);
 
-  const handleSearchClick = (keyword: string): void => {
-    setKeyword(keyword);
-  };
+  const handleSearchClick = (keyword: string): void => setKeyword(keyword);
 
   const handleFilterClick = (f: string): void => {
     if (!filters.includes(f)) {
